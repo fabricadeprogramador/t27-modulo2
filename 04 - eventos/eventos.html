@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Eventos</title>
+    <meta content="text/html;charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div>Contador: {{ contador }}</div>
+
+      <componente
+        mensagem="Boa Noite!"
+        @evento-incrementar="adicionarAoContador"
+      ></componente>
+    </div>
+  </body>
+
+  <script>
+    Vue.component("componente", {
+      props: {
+        mensagem: {
+          type: String
+        }
+      },
+      data() {
+        return {
+          valor: 5
+        };
+      },
+      methods: {
+        incrementar(posInc) {
+          this.$emit("evento-incrementar", this.valor, posInc);
+        }
+      },
+      template: `
+      <div>
+            {{ mensagem }}
+
+            <button type="button" @click="incrementar(1)">Incrementar</button>
+        </div>
+      `
+    });
+
+    var app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          contador: 0
+        };
+      },
+      methods: {
+        adicionarAoContador(valor, pos) {
+          this.contador += valor;
+          alert("Valor do pos incremento é: " + pos);
+        }
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Seletor de cores</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="css/seletor.css">
+</head>
+
+<body>
+
+    <div id="app" class='card'>
+
+        <h1>Selecione a cor</h1>
+
+        <img :src="carroSelecionado.imagem" class="imagem">
+
+        <span> {{ carroSelecionado.marca }} {{ carroSelecionado.modelo }}, {{ carroSelecionado.ano }} - {{ carroSelecionado.cor }}</span>
+
+        <div v-for="carro in carros" 
+            :key="carro.id" 
+            class="caixa-cor" 
+            @mouseover="selecionarCarro(carro)"
+            :style="{ backgroundColor : carro.cor}">
+        </div>
+
+        <span v-for="carro in carros" 
+                :key="carro.id"> {{carro.cor}} : {{ carro.qtd }} </span>
+
+        <button @click="comprar">Comprar</button>
+    </div>
+
+
+</body>
+<script src="js/seletor.js"></script>
+
+</html>

@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Cachorro - Gato</title>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="css/cachorro-gato.css" />
+  </head>
+  <body>
+    <div id="app">
+      <img v-bind:src="caminhoImg" alt="" />
+      <div id="botao">
+        <button type="button" @click="trocarCachorro()">cachorro</button>
+        <button type="button" @click="trocarGato()">gato</button>
+      </div>
+    </div>
+  </body>
+  <script src="js/cachorro-gato.js"></script>
+</html>

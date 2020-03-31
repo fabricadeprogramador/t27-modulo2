@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Cor do Carro</title>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="css/estilo.css" />
+  </head>
+  <body>
+    <div id="app">
+      <img v-bind:src="carroAtual.img" />
+      <span>
+        {{carroAtual.marca}} {{carroAtual.modelo}}, {{carroAtual.ano}} -
+        {{carroAtual.cor}}
+      </span>
+      <div class="container">
+        <div
+          v-for="carro,index in carros"
+          @mouseover="trocarImg(carro)"
+          class="caixa-cor"
+          :style="{backgroundColor:carro.cor}"
+        ></div>
+        <span v-for="carro, index in carros">
+          {{carro.cor}}: {{carro.qtd}}
+        </span>
+        <button type="button" @click="valorDecrementado()">Comprar</button>
+      </div>
+    </div>
+  </body>
+  <script src="js/cor-do-carro.js"></script>
+</html>

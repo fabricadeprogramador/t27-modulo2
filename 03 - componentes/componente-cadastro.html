@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Componentes</title>
+    <meta content="text/html;charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app1">
+      <h2>Componente Pai</h2>
+      <cadastro-cliente
+        :titulo="valorTitulo"
+        @cadastrar="inserirCliente"
+      ></cadastro-cliente>
+
+      <h3>Lista de Clientes</h3>
+      <div>
+        <ul>
+          <li v-for="cli in clientes" :key="cli.nome">
+            {{ cli.nome }} {{ cli.sobrenome }}, {{ cli.idade }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script src="js/componente.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#app1",
+      data() {
+        return {
+          valorTitulo: "Clientes",
+          clientes: []
+        };
+      },
+      methods: {
+        inserirCliente(cliente) {
+          this.clientes.push(cliente);
+        }
+      }
+    });
+  </script>
+</html>

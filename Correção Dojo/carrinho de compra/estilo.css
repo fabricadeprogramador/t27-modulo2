@@ -1,0 +1,43 @@
+.card{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+h1{
+    font-weight: 100;
+}
+
+.imagem{
+    display: block;
+    margin: auto;
+    width: 100px;
+}
+
+.div-dados{
+    width: 100%;
+}
+
+.div-um-quarto{
+    flex-wrap: wrap;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 25%;
+}
+
+.botao{
+    border: none;
+    background-color: steelblue;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px gray;
+    font-weight: 800;
+}
+
+.saida{
+    font-size: 20pt;
+    margin: 20px 0px 20px 0px;
+}
+

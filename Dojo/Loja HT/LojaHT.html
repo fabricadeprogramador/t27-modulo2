@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Loja HT</title>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="css/LojaHT.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>Loja HT</h1>
+      <div
+        v-for="produto in listaProdutos"
+        :key="produto.id"
+        class="card-carro"
+      >
+        <img :src="produto.img" alt="" />
+        <div>
+          <p>Nome:{{produto.nome}}</p>
+          <p>Qtd:{{produto.qtd}}</p>
+          <p>Descrição:{{produto.descricao}}</p>
+        </div>
+        <div>
+          <p>Valor: R${{produto.valor}}</p>
+        </div>
+        <button @click="adicionarCarrinho(produto)">
+          Adicionar ao carrinho
+        </button>
+      </div>
+      <div>Quantidade de produtos no carrinho: {{carrinho.produtos}}</div>
+      <div>Valor Total: {{carrinho.valorTotal }}</div>
+      <button @click="finalizar()">Finalizar</button>
+    </div>
+  </body>
+  <script src="js/LojaHT.js"></script>
+</html>
